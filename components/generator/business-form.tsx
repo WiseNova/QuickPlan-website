@@ -21,7 +21,7 @@ const formSchema = z.object({
   industry: z.string({
     required_error: "Please select an industry.",
   }),
-  description: z.string().min(50, {
+  businessDescription: z.string().min(50, {
     message: "Description must be at least 50 characters.",
   }),
   targetMarket: z.string().min(20, {
@@ -45,7 +45,7 @@ export default function BusinessForm({ onSubmit }: BusinessFormProps) {
     defaultValues: {
       businessName: "",
       industry: "",
-      description: "",
+      businessDescription: "",
       targetMarket: "",
       fundingGoal: "",
       timeframe: "",
@@ -111,19 +111,19 @@ export default function BusinessForm({ onSubmit }: BusinessFormProps) {
             
             <FormField
               control={form.control}
-              name="description"
+              name="businessDescription"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("form.description.label").toString()}</FormLabel>
+                  <FormLabel>{t("form.businessDescription.label").toString()}</FormLabel>
                   <FormControl>
                     <Textarea 
-                      placeholder={t("form.description.placeholder").toString()} 
+                      placeholder={t("form.businessDescription.placeholder").toString()} 
                       className="min-h-[120px]" 
                       {...field} 
                     />
                   </FormControl>
                   <FormDescription>
-                    {t("form.description.help").toString()}
+                    {t("form.businessDescription.help").toString()}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

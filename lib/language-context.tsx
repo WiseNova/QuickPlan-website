@@ -6,7 +6,7 @@ import { Language, translations } from './translations';
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: <T extends string | string[]>(key: string) => T;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -26,7 +26,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('language', lang);
   };
 
-  const t = (key: string) => {
+  const t = <T extends string | string[]>(key: string): T => {
     const keys = key.split('.');
     let value: any = translations[language];
     
@@ -34,11 +34,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       if (value && typeof value === 'object') {
         value = value[k];
       } else {
-        return key;
+        return key as T;
       }
     }
     
-    return value || key;
+    return (value || key) as T;
   };
 
   return (

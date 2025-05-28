@@ -138,7 +138,7 @@ type Translation = {
       label: string;
       placeholder: string;
     };
-    description: {
+    businessDescription: {
       label: string;
       placeholder: string;
       help: string;
@@ -318,7 +318,7 @@ export const translations: Record<Language, Translation> = {
         label: 'Industry',
         placeholder: 'Select an industry'
       },
-      description: {
+      businessDescription: {
         label: 'Business Description',
         placeholder: 'Describe your business concept, products or services, and what makes it unique...',
         help: 'Be specific about your products/services and your unique value proposition.'
@@ -496,7 +496,7 @@ export const translations: Record<Language, Translation> = {
         label: 'Secteur d\'activité',
         placeholder: 'Sélectionnez un secteur'
       },
-      description: {
+      businessDescription: {
         label: 'Description de l\'entreprise',
         placeholder: 'Décrivez votre concept d\'entreprise, vos produits ou services, et ce qui les rend uniques...',
         help: 'Soyez précis sur vos produits/services et votre proposition de valeur unique.'

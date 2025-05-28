@@ -86,7 +86,7 @@ Year 3: $5.5M revenue`;
             <h1 className="scroll-m-20 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
               {t('hero.title')} <span className="text-primary relative">
                 <TextAnimate
-                  words={t('hero.titleWords') as string[]}
+                  words={t<string[]>('hero.titleWords')}
                   className="text-primary"
                 />
               </span> {t('hero.titleEnd')}
@@ -393,7 +393,7 @@ Year 3: $5.5M revenue`;
                   <span className="text-muted-foreground ml-1">{t('pricing.starter.period')}</span>
                 </div>
                 <ul className="space-y-3 mb-6">
-                  {t('pricing.starter.features').map((feature: string, index: number) => (
+                  {(t<string[]>('pricing.starter.features')).map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{feature}</span>
@@ -420,7 +420,7 @@ Year 3: $5.5M revenue`;
                   <span className="text-muted-foreground ml-1">{t('pricing.professional.period')}</span>
                 </div>
                 <ul className="space-y-3 mb-6">
-                  {t('pricing.professional.features').map((feature: string, index: number) => (
+                  {(t<string[]>('pricing.professional.features')).map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{feature}</span>
@@ -444,7 +444,7 @@ Year 3: $5.5M revenue`;
                   <span className="text-muted-foreground ml-1">{t('pricing.lifetime.period')}</span>
                 </div>
                 <ul className="space-y-3 mb-6">
-                  {t('pricing.lifetime.features').map((feature: string, index: number) => (
+                  {(t<string[]>('pricing.lifetime.features')).map((feature, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-primary mr-2 flex-shrink-0" />
                       <span>{feature}</span>
@@ -468,7 +468,7 @@ Year 3: $5.5M revenue`;
               Ready to transform your business idea into reality?
             </h2>
             <p className="text-xl opacity-90 mb-8">
-              Join thousands of entrepreneurs who've accelerated their journey with our AI-powered business plan generator.
+              Join thousands of entrepreneurs who&apos;ve accelerated their journey with our AI-powered business plan generator.
             </p>
             <Button asChild size="lg" variant="secondary" className="text-base">
               <Link href="/generate">{t('nav.getStarted')}</Link>
