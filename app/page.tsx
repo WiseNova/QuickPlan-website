@@ -86,7 +86,7 @@ Year 3: $5.5M revenue`;
             <h1 className="scroll-m-20 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
               {t('hero.title')} <span className="text-primary relative">
                 <TextAnimate
-                  words={t<string[]>('hero.titleWords')}
+                  words={t('hero.titleWords')}
                   className="text-primary"
                 />
               </span> {t('hero.titleEnd')}

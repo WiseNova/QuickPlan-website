@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface TextAnimateProps {
-  words: string[];
+  words: string | string[];
   className?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
@@ -23,8 +23,11 @@ export default function TextAnimate({
   const [wordIndex, setWordIndex] = useState(0);
   const [typingDelay, setTypingDelay] = useState(typingSpeed);
 
+  // Convert string to array if needed
+  const wordsArray = Array.isArray(words) ? words : [words];
+
   useEffect(() => {
-    const currentWord = words[wordIndex];
+    const currentWord = wordsArray[wordIndex];
     
     const timer = setTimeout(() => {
       if (isDeleting) {
@@ -42,12 +45,12 @@ export default function TextAnimate({
       } else if (isDeleting && text === "") {
         // Word is deleted, move to next word
         setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
+        setWordIndex((prev) => (prev + 1) % wordsArray.length);
       }
     }, typingDelay);
 
     return () => clearTimeout(timer);
-  }, [text, isDeleting, typingDelay, wordIndex, words, typingSpeed, deletingSpeed, pauseTime]);
+  }, [text, isDeleting, typingDelay, wordIndex, wordsArray, typingSpeed, deletingSpeed, pauseTime]);
 
   return (
     <span className={cn("relative", className)}>
